@@ -24,11 +24,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-
-import com.fonepaisa.GenEPG.CommonUtil.CommonUtil;
-import com.fonepaisa.GenEPG.CommonUtil.Constants;
-import com.fonepaisa.GenEPG.CommonUtil.ConvertObject;
 import com.fonepaisa.GenEPG.DB.CommonDBOperations;
 import com.fonepaisa.GenEPG.DB.DBConnector;
 import com.fonepaisa.GenEPG.DTO.fetchGameDetailsDTO;
@@ -45,7 +40,11 @@ public class MainController {
     @Autowired
     private CommonDBOperations comDb;
     @Autowired
-   
+    @RequestMapping(value = "/{test}", method = RequestMethod.GET)
+    public ModelAndView login(HttpServletRequest request) {
+    	ModelAndView mv = new ModelAndView("login");
+    	return mv;
+    }
 	@RequestMapping("/helloworld")
 	public ModelAndView showMessage() {
 		System.out.println("in controller");
@@ -72,8 +71,35 @@ public class MainController {
 		req.setRespCode(GenEPGException.getCode(GenEPGException.SUCCESS));
         req.setRespMsg(GenEPGException.getDescription(GenEPGException.SUCCESS));
 		return req;
-	}
-	
-	
-		
+	}		
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

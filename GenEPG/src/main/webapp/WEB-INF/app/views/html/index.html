@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html style="background:  3px seagreen;">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+		<title>fonePaisa Portal</title>
+    	<meta name="author" content="Satinjal Y."/>
+		<META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE"/>
+		<META HTTP-EQUIV="EXPIRES" CONTENT="-1"/>
+		<META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE"/>
+    <link href="/genepg/css/login.css" rel="stylesheet" type="text/css">
+    <script src=
+    "https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js">
+    </script>
+    <title>USER Login</title>
+</head>
+<body>
+    <div class="login-page">
+        <div class="form">
+                <div class="center" style="background: none;padding:.5em"><img id="logo" alt="LOGO"
+                height="25" src=
+                "/genepg/images/user.png" style="padding: 12px 23px;margin-top: 15px;background: rgba(255, 255, 255, 0.37);"></div>
+            <div class="login-form" id="userLogin">
+				<input autocomplete="off" id="Username" placeholder="Username"
+                type="text">
+				<input autocomplete="off" placeholder="Password"
+                type="password">
+				</br>
+				<button name="submit" onclick=
+                "submitLogin()">login</button>
+                <div class="top-buffer" style="text-align:center">
+                    <span id="errorBox"></span>
+                </div>
+            </div>
+        </div>
+    </div><button id="myBtn" style="display:none"></button>
+    <div class="modal" id="myModal">
+        <!-- Modal content -->
+        <div align="center" class="modal-content" style="width:270px">
+            <div class="modal-header">
+                <h2>Invalid credential</h2>
+            </div>
+            <div class="modal-body">
+                <p>Your password is invalid<br>
+                <a href="forgot_Password.html">click here to login</a></p>
+            </div>
+            <div class="modal-footer">
+                <h3 class="" style="text-align:right;"><a href=
+                ""><button>OK</button></a></h3>
+            </div>
+        </div>
+    </div> 
+</body>
+	<script type="text/javascript">
+		var submitLogin = function(){
+			var data = {}, temp = [];
+			$('input').each(function(){
+				temp.push(this.value);
+			});
+			data["userId"]   = temp[1];
+			data["password"] = temp[2];
+			 $.ajax({
+					type: "POST",
+					url: "/submitLogin",
+					data: JSON.stringify(data),
+					dataType: 'json'
+				}).done(function(resData){
+				
+				}).fail(function(resData){
+					$("#errorBox").html("Something Wrong has happened!");
+				});
+		}
+	</script>
+</html>

@@ -3,7 +3,6 @@ package com.fonepaisa.GenEPG.CommonUtil;
 import java.net.SocketException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.regex.Pattern;
 
 import org.junit.Test;
 

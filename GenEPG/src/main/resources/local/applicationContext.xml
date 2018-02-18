@@ -10,9 +10,10 @@
                     http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.2.xsd">
 
 	<context:component-scan base-package="com.fonepaisa.GenEPG" />
-
+	<!-- Properties related to UI -->
+	<mvc:resources mapping="/**" location="/WEB-INF/app/" />
+	
 	<mvc:annotation-driven />
-   
     	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix">

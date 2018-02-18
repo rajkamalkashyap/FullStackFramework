@@ -230,11 +230,6 @@
 			<artifactId>opencsv</artifactId>
 			<version>3.6</version>
 		</dependency>
-		<dependency>
-			<groupId>UPIMeToolKit</groupId>
-			<artifactId>UPIMeToolKit</artifactId>
-			<version>1.0</version>
-		</dependency>
 		<dependency><!-- Connection pool -->
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-c3p0</artifactId>

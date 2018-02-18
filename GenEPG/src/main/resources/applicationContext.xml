@@ -9,29 +9,27 @@
                     http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd
                     http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.2.xsd">
 
-	<context:component-scan base-package="com.fonepaisa.GenEPG" />
-	<!-- Properties related to UI -->
-	<mvc:resources mapping="/css/**" location="/WEB-INF/css/" />
-	<mvc:resources mapping="/js/**" location="/WEB-INF/js/" />
-	<mvc:resources mapping="/images/**" location="/WEB-INF/images/" />
-	
+	<context:component-scan base-package="com.fonepaisa.fpportal, com.fonepaisa.portal" />
+
 	<mvc:annotation-driven />
-    	<bean
-		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="prefix">
-			<value>/WEB-INF/views/</value>
-		</property>
-		<property name="suffix">
-			<value>.jsp</value>
-		</property>
-	</bean>	
 	
-    <!-- common file upload initialization happens here  -->
-    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-        <property name="maxUploadSize" value="99999999"/>  <!-- added to handle large file uploads  -->
-        <property name="maxInMemorySize" value="99999999"/> <!--  need to disucss and decide max size  in bytes-->
+	<!-- Properties related to UI -->
+	<mvc:resources mapping="/**" location="/WEB-INF/app/" />
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
     </bean>
+	<bean id="viewResolver"	class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+		<property name="viewClass" value="org.springframework.web.servlet.view.tiles2.TilesView" />
+	</bean>
+	<bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles2.TilesConfigurer">
+		<property name="definitions">
+			<list>
+				<value>/WEB-INF/tiles.xml</value>
+			</list>
+		</property>
+	</bean>
+	<!-- Properties related to UI -->
 	
+	<!-- Properties related to Web Service -->
 	<bean id="messageAdapter" class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
 		<property name="messageConverters">
 			<list>
@@ -41,4 +39,5 @@
 		</property>
 	</bean>
 
+	<!-- Properties related to Web Service -->
 </beans>
