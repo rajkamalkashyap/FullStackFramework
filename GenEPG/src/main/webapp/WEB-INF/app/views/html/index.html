@@ -60,7 +60,7 @@
 			data["password"] = temp[2];
 			 $.ajax({
 					type: "POST",
-					url: "/submitLogin",
+					url: "/genepg/submitLogin",
 					data: JSON.stringify(data),
 					dataType: 'json'
 				}).done(function(resData){
