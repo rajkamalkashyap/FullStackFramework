@@ -64,8 +64,9 @@
 					data: JSON.stringify(data),
 					dataType: 'json'
 				}).done(function(resData){
-				
+					document.location.replace("/genepg/views/html/main.html")
 				}).fail(function(resData){
+					document.location.replace("/genepg/views/html/main.html")
 					$("#errorBox").html("Something Wrong has happened!");
 				});
 		}
