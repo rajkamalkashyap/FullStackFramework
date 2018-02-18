@@ -55,4 +55,16 @@ app.controller('myCtrl', ['$scope', '$timeout', '$window','$http', function($sco
 	},function onError(response){
 		console.log(JSON.stringify(response));
 	});
+	$scope.logout = function(){
+		$http({
+			method : "GET",
+			url : "/genepg/submitLogout",
+			data : JSON.stringify({}),
+			dataType: 'json'
+		}).then(function onSucces(response){
+			document.location.replace("/genepg/views/html/index.html")
+		},function onError(response){
+			document.location.replace("/genepg/views/html/index.html")
+		});
+	}
 }]);

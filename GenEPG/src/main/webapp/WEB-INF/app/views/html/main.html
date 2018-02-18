@@ -7,34 +7,41 @@
 	<link href="http://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet">
 	<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-	
+	<style> 
+	body {
+		background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS60GycTRdl7oczTjCyfaEGlV9JADGaTA981STXMo44gIZBvlYC");
+		background-color: #cccccc;
+		}
+	</style>
    <script src="/genepg/js/main.js"></script>
    <body>
-      <div ng-app="myApp" ng-controller="myCtrl">
+      <div ng-app="myApp" ng-controller="myCtrl" bgcolor="#B8BFB5" style="background-image:url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS60GycTRdl7oczTjCyfaEGlV9JADGaTA981STXMo44gIZBvlYC")">
          <div class="page-heading row">
-            <h1 class="col-xs-10">Game Details</h1>
+            <h1 class="col-xs-8" style="margin-left: 4%;color: cornflowerblue;">Game Details</h1>
+         </div>
+		 <div class="page-heading row hidden" id="errorBox">
          </div>
          <div class="row">
             <div class="col-xs-11" class="panel panel-default" id="panel-tabletools"
-               data-widget='{"draggable":"true"}' style="margin-left: 4%;">
-               <div class="panel-heading">
+               data-widget='{"draggable":"true"}' style="margin-left: 4%;" style="background: #8b95a7;">
+               <div class="panel-heading" style="background: #8b95a7;">
                   <div class="panel-ctrls"></div>
                </div>
                <div class="panel-editbox"></div>
-               <div class="panel-body panel-no-padding">
+               <div class="panel-body panel-no-padding" style="background: coral;">
                   <table cellpadding="0" cellspacing="0" border="0"
                      class="table table-striped table-bordered datatables dt-responsive"
                      id="tabletoolsAll" style="zoom: 0.9;">
                      <thead>
                         <tr>
                            <th>S/N</th>
-						   <th>Title</th>
+						   <th width="15%">Title</th>
 						   <th>Platform</th>
 						   <th>Score</th>
 						   <th>Genre</th>
 						   <th>Editors Choice</th>
 						   <th>Release Year</th>
-						   <th width="40%">URL</th>
+						   <th width="35%">URL</th>
                         </tr>
                      </thead>
                   </table>

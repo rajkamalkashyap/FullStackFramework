@@ -56,17 +56,21 @@
 			$('input').each(function(){
 				temp.push(this.value);
 			});
-			data["userId"]   = temp[1];
-			data["password"] = temp[2];
+			data["user_id"]   = temp[0];
+			data["password"] = temp[1];
 			 $.ajax({
 					type: "POST",
 					url: "/genepg/submitLogin",
 					data: JSON.stringify(data),
 					dataType: 'json'
 				}).done(function(resData){
-					document.location.replace("/genepg/views/html/main.html")
+					console.log(resData.data)
+					//document.location.replace("/genepg/views/html/main.html")
 				}).fail(function(resData){
-					document.location.replace("/genepg/views/html/main.html")
+					console.log(resData.responseText)
+					if(resData.responseText != "ERROR"){
+						document.location.replace(resData.responseText);
+					}
 					$("#errorBox").html("Something Wrong has happened!");
 				});
 		}
